@@ -1,0 +1,28 @@
+li {
+    list-style: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+.slide-image {
+    margin-bottom: 36px;
+}
+
+.slide-title {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.slide-list {
+    padding-bottom: 10px;
+}
+
+.slide-list li {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 14px;
+}
