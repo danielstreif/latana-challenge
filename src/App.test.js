@@ -3,6 +3,6 @@ import App from "./App";
 
 test("renders header title", () => {
     render(<App />);
-    const linkElement = screen.getByText(/Latana Knowledge Center/i);
-    expect(linkElement).toBeInTheDocument();
+    const Element = screen.getByText(/Latana Knowledge Center/i);
+    expect(Element).toBeInTheDocument();
 });

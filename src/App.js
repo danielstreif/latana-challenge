@@ -1,7 +1,5 @@
 import "./App.css";
-import CarouselSlide from "./CarouselSlide";
-import { ArrowLeft, ArrowRight } from "./Arrow";
-import content from "./data/content.json";
+import Carousel from "./Carousel";
 
 function App() {
     return (
@@ -11,15 +9,7 @@ function App() {
                 Everything you need to know about the best brand tracking
                 solution in the world.
             </p>
-            <div className="carousel-container">
-                {content.map((slide, index) => (
-                    <CarouselSlide content={slide} key={index} />
-                ))}
-            </div>
-            <div className="arrow-container">
-                <ArrowLeft />
-                <ArrowRight />
-            </div>
+            <Carousel />
         </div>
     );
 }

@@ -1,35 +1,37 @@
 import "./Arrow.css";
 import { useState } from "react";
 
-export function ArrowLeft() {
+export function ArrowLeft({ slideLeft }) {
     const [focus, setFocus] = useState(false);
 
     return (
         <div
+            onClick={slideLeft}
             onMouseEnter={() => setFocus(!focus)}
             onMouseLeave={() => setFocus(!focus)}
             className="arrow left"
         >
             <img
                 src={`/icons/arrow_left${focus ? "_hover" : ""}.svg`}
-                alt="arrow left"
+                alt="&larr;"
             />
         </div>
     );
 }
 
-export function ArrowRight() {
+export function ArrowRight({ slideRight }) {
     const [focus, setFocus] = useState(false);
 
     return (
         <div
+            onClick={slideRight}
             onMouseEnter={() => setFocus(!focus)}
             onMouseLeave={() => setFocus(!focus)}
             className="arrow right"
         >
             <img
                 src={`/icons/arrow_right${focus ? "_hover" : ""}.svg`}
-                alt="arrow right"
+                alt="&rarr;"
             />
         </div>
     );

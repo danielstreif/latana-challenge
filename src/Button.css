@@ -1,15 +1,15 @@
 button {
     border: 1px solid #31135e;
-    box-sizing: border-box;
     border-radius: 4px;
     background: #ffffff;
     color: #31135e;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 800;
     padding: 16px 24px 16px 24px;
     transition: all 0.15s ease;
+    margin: 1px;
 }
 
 button:hover {
-    border: 2px solid #31135e;
+    box-shadow: 0 0 0 1px #31135e;
 }

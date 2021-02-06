@@ -15,14 +15,3 @@
     font-size: 20px;
     font-weight: 400;
 }
-
-.carousel-container {
-    display: flex;
-    overflow: scroll;
-    scrollbar-width: none;
-    margin-bottom: 40px;
-}
-
-.arrow-container {
-    display: flex;
-}
