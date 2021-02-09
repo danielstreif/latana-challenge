@@ -1,17 +1,25 @@
-.App {
+.app {
     margin: 100px 120px 87px 120px;
 }
 
 .title {
     margin-top: 0;
     margin-bottom: 8px;
-    font-size: 48px;
+    font-size: 4.8rem;
+    line-height: 5.2rem;
     font-weight: 800;
 }
 
 .sub-title {
     margin-top: 0;
     margin-bottom: 60px;
-    font-size: 20px;
+    font-size: 2.2rem;
+    line-height: 2.8rem;
     font-weight: 400;
+}
+
+@media screen and (max-width: 720px) {
+    .app {
+        margin: 100px 20px 87px 20px;
+    }
 }

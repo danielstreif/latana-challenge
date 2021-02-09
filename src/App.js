@@ -3,7 +3,7 @@ import Carousel from "./Carousel";
 
 function App() {
     return (
-        <div className="App">
+        <div className="app">
             <h1 className="title">Latana Knowledge Center</h1>
             <p className="sub-title">
                 Everything you need to know about the best brand tracking

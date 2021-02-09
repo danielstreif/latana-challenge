@@ -1,9 +1,13 @@
 import "./CarouselSlide.css";
 import Button from "./Button";
 
-export default function CarouselSlide({ content }) {
+export default function CarouselSlide({ content, animate, setAnimate }) {
     return (
-        <div className="carousel-slide">
+        <div
+            onAnimationEnd={() => setAnimate("0")}
+            animate={animate}
+            className={`carousel-slide`}
+        >
             <img
                 className="slide-image"
                 src={content.image}
