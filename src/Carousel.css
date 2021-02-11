@@ -1,9 +1,26 @@
 .carousel-container {
     display: flex;
+    /* grid-template-columns: repeat(5, 1fr); */
     overflow: hidden;
     margin-bottom: 40px;
+    width: 170%;
 }
+
+/* @media screen and (max-width: 1312) {
+    .carousel-container {
+        grid-template-columns: repeat(4, 1fr);
+        width: 200%;
+    }
+}
+
+@media screen and (max-width: 688px) {
+    .carousel-container {
+        grid-template-columns: repeat(3, 1fr);
+        width: 300%;
+    }
+} */
 
 .arrow-container {
     display: flex;
+    cursor: pointer;
 }

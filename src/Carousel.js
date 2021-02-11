@@ -1,23 +1,61 @@
 import "./Carousel.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CarouselSlide from "./CarouselSlide";
 import { ArrowLeft, ArrowRight } from "./Arrow";
 import content from "./data/content.json";
 
 export default function Carousel() {
-    const [slides, setSlides] = useState(content);
+    const [slides, setSlides] = useState([
+        content[content.length - 1],
+        ...content.slice(0, -1),
+    ]);
     const [touchStart, setTouchStart] = useState(0);
     const [touchEnd, setTouchEnd] = useState(0);
-    const [animate, setAnimate] = useState(true);
-
-    const slideRight = () => {
-        setSlides([...slides.slice(1), slides[0]]);
-        setAnimate("1");
+    const [animate, setAnimate] = useState("0");
+    const [slideDisabled, setSlideDisabled] = useState(false);
+    const [width, setWindowWidth] = useState(0);
+    const updateDimensions = () => {
+        const width = window.innerWidth;
+        setWindowWidth(width);
     };
 
+    useEffect(() => {
+        updateDimensions();
+        window.addEventListener("resize", updateDimensions);
+        return () => window.removeEventListener("resize", updateDimensions);
+    }, []);
+
+    const calcVisibleSlides = () => {
+        switch (true) {
+            case width <= 688:
+                return 1;
+            case width <= 1312:
+                return 2;
+            default:
+                return 3;
+        }
+    };
+
+    const [visibleSlides, setVisibleSlides] = useState(calcVisibleSlides());
+
+    useEffect(() => {
+        setVisibleSlides(calcVisibleSlides());
+    }, [width]);
+
     const slideLeft = () => {
-        setSlides([slides[slides.length - 1], ...slides.slice(0, -1)]);
-        setAnimate("1");
+        if (!slideDisabled) {
+            setSlides([...slides.slice(1), slides[0]]);
+            setAnimate("left");
+            setSlideDisabled(true);
+        }
+    };
+
+    const slideRight = () => {
+        if (!slideDisabled) {
+            setSlides([slides[slides.length - 1], ...slides.slice(0, -1)]);
+            setAnimate("right");
+            setSlideDisabled(true);
+        }
     };
 
     const handleTouchStart = (e) => {
@@ -46,13 +84,14 @@ export default function Carousel() {
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
             >
-                {slides.map((slide, index) => (
+                {slides.slice(0, visibleSlides).map((slide, index) => (
                     <CarouselSlide
                         content={slide}
                         key={index}
                         handleTouchStart={handleTouchStart}
                         animate={animate}
                         setAnimate={setAnimate}
+                        setSlideDisabled={setSlideDisabled}
                     />
                 ))}
             </div>

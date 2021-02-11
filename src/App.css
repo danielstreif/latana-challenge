@@ -1,5 +1,12 @@
 .app {
     margin: 100px 120px 87px 120px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 720px) {
+    .app {
+        margin: 100px 20px 87px 20px;
+    }
 }
 
 .title {
@@ -13,13 +20,7 @@
 .sub-title {
     margin-top: 0;
     margin-bottom: 60px;
-    font-size: 2.2rem;
+    font-size: 2rem;
     line-height: 2.8rem;
     font-weight: 400;
-}
-
-@media screen and (max-width: 720px) {
-    .app {
-        margin: 100px 20px 87px 20px;
-    }
 }

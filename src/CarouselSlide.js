@@ -1,10 +1,18 @@
 import "./CarouselSlide.css";
 import Button from "./Button";
 
-export default function CarouselSlide({ content, animate, setAnimate }) {
+export default function CarouselSlide({
+    content,
+    animate,
+    setAnimate,
+    setSlideDisabled,
+}) {
     return (
         <div
-            onAnimationEnd={() => setAnimate("0")}
+            onAnimationEnd={() => {
+                setAnimate("0");
+                setSlideDisabled(false);
+            }}
             animate={animate}
             className={`carousel-slide`}
         >

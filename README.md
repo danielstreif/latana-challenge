@@ -1,7 +1,6 @@
 # Latana Coding Challenge
 
-This project is part of a coding challenge. 
-The aim is to build a carousel component according to a design brief.
+The aim of this challenge was to build a carousel component according to a design brief. Furthermore, the component should match the overall design of the Latana website. I decided to implement the carousel as a React component and used Create React App for the basic setup.
 
 ## Getting Started with Create React App
 

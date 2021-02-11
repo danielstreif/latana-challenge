@@ -9,27 +9,39 @@ ul {
 
 .carousel-slide {
     position: relative;
+    /* -webkit-transform: translateX(-100%);
+    transform: translateX(-100%); */
     margin-right: 24px;
-    min-width: 384px;
-    max-width: 384px;
-    object-fit: contain;
+    width: 100%;
 }
 
-.carousel-slide[animate="1"] {
-    -webkit-animation: slideIn 500ms;
-    -moz-animation: slideIn 500ms;
-    -o-animation: slideIn 500ms;
-    animation: slideIn 500ms;
+.carousel-slide[animate="left"] {
+    -webkit-animation: slideLeft 500ms;
+    -moz-animation: slideLeft 500ms;
+    -o-animation: slideLeft 500ms;
+    animation: slideLeft 500ms;
+}
+
+.carousel-slide[animate="right"] {
+    -webkit-animation: slideRight 500ms;
+    -moz-animation: slideRight 500ms;
+    -o-animation: slideRight 500ms;
+    animation: slideRight 500ms;
 }
 
 .slide-image {
     margin-bottom: 36px;
-    width: 100%;
+    width: auto;
     height: 220px;
+    object-fit: contain;
+    -webkit-animation: appear 500ms;
+    -moz-animation: appear 500ms;
+    -o-animation: appear 500ms;
+    animation: appear 500ms;
 }
 
 .slide-title {
-    font-size: 3.6rem;
+    font-size: 3.2rem;
     line-height: 4.8rem;
     font-weight: 800;
     margin-top: 0;
@@ -41,20 +53,58 @@ ul {
 }
 
 .slide-list li {
-    font-size: 2rem;
+    font-size: 1.8rem;
     line-height: 2.8rem;
     font-weight: 400;
     margin-bottom: 14px;
 }
 
-@media screen and (max-width: 720px) {
-    .carousel-slide {
-        min-width: 100%;
-        max-width: 100%;
+@-webkit-keyframes slideLeft {
+    0% {
+        -webkit-transform: translateX(100%);
+    }
+    100% {
+        -webkit-transform: translateX(0%);
     }
 }
 
-@keyframes slideIn {
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@-webkit-keyframes slideRight {
+    0% {
+        -webkit-transform: translateX(-100%);
+    }
+    100% {
+        -webkit-transform: translateX(0%);
+    }
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@-webkit-keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes appear {
     0% {
         opacity: 0;
     }
