@@ -5,14 +5,11 @@ import { ArrowLeft, ArrowRight } from "./Arrow";
 import content from "./data/content.json";
 
 export default function Carousel() {
-    const [slides, setSlides] = useState([
-        content[content.length - 1],
-        ...content.slice(0, -1),
-    ]);
+    const [slides, setSlides] = useState(content);
     const [touchStart, setTouchStart] = useState(0);
     const [touchEnd, setTouchEnd] = useState(0);
     const [animate, setAnimate] = useState("0");
-    const [slideDisabled, setSlideDisabled] = useState(false);
+    const [arrowDisabled, setArrowDisabled] = useState(false);
     const [width, setWindowWidth] = useState(0);
     const updateDimensions = () => {
         const width = window.innerWidth;
@@ -27,9 +24,9 @@ export default function Carousel() {
 
     const calcVisibleSlides = () => {
         switch (true) {
-            case width <= 688:
+            case width <= 982:
                 return 1;
-            case width <= 1312:
+            case width <= 1342:
                 return 2;
             default:
                 return 3;
@@ -43,18 +40,18 @@ export default function Carousel() {
     }, [width]);
 
     const slideLeft = () => {
-        if (!slideDisabled) {
+        if (!arrowDisabled) {
             setSlides([...slides.slice(1), slides[0]]);
             setAnimate("left");
-            setSlideDisabled(true);
+            setArrowDisabled(true);
         }
     };
 
     const slideRight = () => {
-        if (!slideDisabled) {
+        if (!arrowDisabled) {
             setSlides([slides[slides.length - 1], ...slides.slice(0, -1)]);
             setAnimate("right");
-            setSlideDisabled(true);
+            setArrowDisabled(true);
         }
     };
 
@@ -91,7 +88,7 @@ export default function Carousel() {
                         handleTouchStart={handleTouchStart}
                         animate={animate}
                         setAnimate={setAnimate}
-                        setSlideDisabled={setSlideDisabled}
+                        setArrowDisabled={setArrowDisabled}
                     />
                 ))}
             </div>

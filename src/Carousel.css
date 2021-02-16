@@ -1,24 +1,23 @@
 .carousel-container {
-    display: flex;
-    /* grid-template-columns: repeat(5, 1fr); */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 24px;
     overflow: hidden;
     margin-bottom: 40px;
-    width: 170%;
+    width: 100%;
 }
 
-/* @media screen and (max-width: 1312) {
+@media screen and (max-width: 1342) {
     .carousel-container {
-        grid-template-columns: repeat(4, 1fr);
-        width: 200%;
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media screen and (max-width: 688px) {
+@media screen and (max-width: 982px) {
     .carousel-container {
-        grid-template-columns: repeat(3, 1fr);
-        width: 300%;
+        grid-template-columns: 1fr;
     }
-} */
+}
 
 .arrow-container {
     display: flex;

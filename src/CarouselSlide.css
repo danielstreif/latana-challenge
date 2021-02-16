@@ -9,9 +9,6 @@ ul {
 
 .carousel-slide {
     position: relative;
-    /* -webkit-transform: translateX(-100%);
-    transform: translateX(-100%); */
-    margin-right: 24px;
     width: 100%;
 }
 

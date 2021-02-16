@@ -5,13 +5,13 @@ export default function CarouselSlide({
     content,
     animate,
     setAnimate,
-    setSlideDisabled,
+    setArrowDisabled,
 }) {
     return (
         <div
             onAnimationEnd={() => {
                 setAnimate("0");
-                setSlideDisabled(false);
+                setArrowDisabled(false);
             }}
             animate={animate}
             className={`carousel-slide`}
